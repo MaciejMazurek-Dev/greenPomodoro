@@ -9,12 +9,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8DFF6038-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A08CEF4F-D044-4172-9426-C0753EF8C8DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{A056D80D-1AB0-48CA-841D-228B72E52FE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUI", "BlazorUI\BlazorUI.csproj", "{6EBA4543-B3BE-4D76-B1BF-F538773D0600}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EBA4543-B3BE-4D76-B1BF-F538773D0600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBA4543-B3BE-4D76-B1BF-F538773D0600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBA4543-B3BE-4D76-B1BF-F538773D0600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBA4543-B3BE-4D76-B1BF-F538773D0600}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A08CEF4F-D044-4172-9426-C0753EF8C8DB} = {B3ADE56F-D8EE-401A-868D-5C5FC45C1A3A}
+		{A056D80D-1AB0-48CA-841D-228B72E52FE1} = {B3ADE56F-D8EE-401A-868D-5C5FC45C1A3A}
+		{6EBA4543-B3BE-4D76-B1BF-F538773D0600} = {A056D80D-1AB0-48CA-841D-228B72E52FE1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {664EDAD0-B382-4404-8C20-71AB31AC2FDB}
