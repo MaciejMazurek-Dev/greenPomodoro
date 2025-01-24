@@ -1,0 +1,17 @@
+﻿<div class="container-fluid">
+    <div class="timer-body">
+        <div class="timer-container">
+            <div class="outerRing" style="background: conic-gradient(#00ff10 @(currentDegree)deg, #ffffff @(currentDegree)deg)">
+                <div class="timer">
+                    <div id="time">
+                        <span id="minutes">@RemainingTime.Minutes.ToString("D2")</span>
+                        <span id="colon">:</span>
+                        <span id="seconds">@RemainingTime.Seconds.ToString("D2")</span>
+                    </div>
+                    <div id="toggle-button" @onclick="ToggleTimer">START</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
