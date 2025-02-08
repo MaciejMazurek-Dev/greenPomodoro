@@ -1,0 +1,19 @@
+﻿@page "/task"
+
+<table class="table">
+    <tbody>
+        @foreach(var task in PomodoroTasks)
+            {
+                <tr>
+                    <th>@task.Id</th>
+                    <th>@task.Name</th>
+                    <th>@task.DueDate</th>
+                    <th>@task.EstimatedPomodoros</th>
+                    <th>@task.FinishedPomodoros</th>
+                    <th>@task.PomodoroLength</th>
+                    <th>@task.ShortBreakLength</th>
+                    <th>@task.LongBreakLength</th>
+                </tr>
+            }
+    </tbody>
+</table>

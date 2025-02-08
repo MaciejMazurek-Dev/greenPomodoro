@@ -1,0 +1,21 @@
+﻿@page "/task/create"
+
+<EditForm Model="@Model" OnSubmit="CreateTask">
+    <div>
+        <label>Name</label>
+        <InputText @bind-Value="Model.Name" />
+        <label>Due Date</label>
+        <InputDate @bind-Value="Model.DueDate" />
+        <label>Pomodoro Length</label>
+        <InputNumber @bind-Value="Model.PomodoroLength" />
+        <label>Estimated Pomodoros</label>
+        <InputNumber @bind-Value="Model.EstimatedPomodoros" />
+        <label>Short Break Length</label>
+        <InputNumber @bind-Value="Model.ShortBreakLength" />
+        <label>Long Break Length</label>
+        <InputNumber @bind-Value="Model.LongBreakLength" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Create task</button>
+    </div>
+</EditForm>

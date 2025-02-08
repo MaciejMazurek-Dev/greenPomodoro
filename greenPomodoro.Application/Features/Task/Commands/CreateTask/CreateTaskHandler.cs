@@ -4,14 +4,14 @@ using MediatR;
 
 namespace greenPomodoro.Application.Features.Task.Commands.CreateTask
 {
-    public class CreateTaskHandler : IRequestHandler<CreateTaskRequest, bool>
+    public class CreateTaskHandler : IRequestHandler<CreateTaskCommand, bool>
     {
         private readonly ITaskRepository _taskRepository;
         public CreateTaskHandler(ITaskRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }
-        public Task<bool> Handle(CreateTaskRequest request, CancellationToken cancellationToken)
+        public Task<bool> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
         {
             PomodoroTask task = new PomodoroTask
             {
@@ -22,7 +22,8 @@ namespace greenPomodoro.Application.Features.Task.Commands.CreateTask
                 FinishedPomodoros = 0,
                 Name = request.Name,
                 PomodoroLength = request.PomodoroLength == 0 ? 25 : request.PomodoroLength,
-                ShortBreakLength = request.ShortBreakLength == 0 ? 5 : request.ShortBreakLength
+                ShortBreakLength = request.ShortBreakLength == 0 ? 5 : request.ShortBreakLength,
+                UserId = request.UserId
             };
             return _taskRepository.CreateTaskAsync(task);
         }
