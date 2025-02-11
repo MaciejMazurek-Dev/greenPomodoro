@@ -1,0 +1,11 @@
+﻿@page "/auth/login"
+
+<EditForm Model="Model" OnSubmit="LoginUser">
+    <label>Email:</label>
+    <InputText @bind-Value="Model.Email" />
+    <label>Password:</label>
+    <InputText type="password" @bind-Value="Model.Password" />
+    <button type="submit">Login</button>
+</EditForm>
+
+<button @onclick="LoginDemo">Login Demo</button>

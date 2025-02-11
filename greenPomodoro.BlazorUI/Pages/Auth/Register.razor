@@ -1,0 +1,9 @@
+﻿@page "/auth/register"
+
+<EditForm Model="Model" OnSubmit="RegisterUser">
+    <label>Email:</label>
+    <InputText @bind-Value="Model.Email" />
+    <label>Password:</label>
+    <InputText type="password" @bind-Value="Model.Password" />
+    <button type="submit">Register</button>
+</EditForm>
