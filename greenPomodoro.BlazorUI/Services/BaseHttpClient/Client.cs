@@ -27,6 +27,20 @@ namespace greenPomodoro.BlazorUI.Services.BaseHttpClient
             bool result = await response.Content.ReadFromJsonAsync<bool>();
             return result;
         }
+
+        public async Task<bool> RegisterUser(RegisterRequest registerRequest)
+        {
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/api/auth/register", registerRequest);
+            bool result = await response.Content.ReadFromJsonAsync<bool>();
+            return result;
+        }
+
+        public async Task<LoginResponse> LoginUser(LoginRequest loginRequest)
+        {
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/api/auth/login", loginRequest);
+            LoginResponse result = await response.Content.ReadFromJsonAsync<LoginResponse>();
+            return result;
+        }
     }
 
     //DTO Classes
@@ -50,5 +64,20 @@ namespace greenPomodoro.BlazorUI.Services.BaseHttpClient
         public int ShortBreakLength { get; set; }
         public int LongBreakLength { get; set; }
         public string? UserId { get; set; }
+    }
+    public class RegisterRequest
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+    public class LoginResponse
+    {
+        public string AccessToken { get; set; } = string.Empty;
+        public string RefreshToken { get; set; } = string.Empty;
+    }
+    public class LoginRequest
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }

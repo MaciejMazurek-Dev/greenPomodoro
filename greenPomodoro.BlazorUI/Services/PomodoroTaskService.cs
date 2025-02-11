@@ -1,8 +1,6 @@
 ﻿using greenPomodoro.BlazorUI.Contracts;
 using greenPomodoro.BlazorUI.Models;
 using greenPomodoro.BlazorUI.Services.BaseHttpClient;
-using Microsoft.VisualBasic;
-using System.Xml.Linq;
 
 namespace greenPomodoro.BlazorUI.Services
 {
@@ -11,11 +9,9 @@ namespace greenPomodoro.BlazorUI.Services
         public PomodoroTaskService(IClient client) : base(client)
         {
         }
-
         public async Task<List<TaskVM>> GetAllTasks()
         {
             List<TaskDto> tasks = await _client.GetAllIssues();
-
             List<TaskVM> result = new();
             foreach (TaskDto task in tasks)
             {
@@ -33,7 +29,6 @@ namespace greenPomodoro.BlazorUI.Services
             }
             return result;
         }
-
         public async Task<bool> CreateTask(CreateTaskVM task)
         {
             CreateTaskCommand command = new CreateTaskCommand
