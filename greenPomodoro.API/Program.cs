@@ -1,33 +1,31 @@
+using greenPomodoro.Application;
 using greenPomodoro.Identity;
+using greenPomodoro.Persistence;
 namespace greenPomodoro.API
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddApplicationServices();
             builder.Services.AddIdentityServices();
+            builder.Services.AddPersistenceServices();
+
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
+            WebApplication app = builder.Build();
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseHttpsRedirection();
-
+            //app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseAuthorization();
-
-
+            
             app.MapControllers();
 
             app.Run();
